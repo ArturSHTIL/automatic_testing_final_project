@@ -19,7 +19,7 @@ def test_guest_should_see_login_link(browser):
 
 
 def test_for_login_or_reg(browser):
-    link = 'http://selenium1py.pythonanywhere.com/'
+    link = 'http://selenium1py.pythonanywhere.com/ru/accounts/login/'
     page = LoginPage(browser, link)
     page.open()
     page.should_be_login_url()
