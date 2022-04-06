@@ -33,4 +33,5 @@ class ProductPageLocators:
 
 class BasketPageLocators:
     EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
-    CONTINUOUS_LINK = (By.CSS_SELECTOR, "#content_inner a")
+    CONTINUE_LINK = (By.CSS_SELECTOR, "#content_inner a")
+    PRODUCT_IN_BASKET = (By.CSS_SELECTOR, ".basket-items")
