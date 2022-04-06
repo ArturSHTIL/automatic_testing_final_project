@@ -1,3 +1,5 @@
+import time
+from .pages.basket_page import BasketPage
 from .pages.product_page import ProductPage
 import pytest
 
@@ -58,3 +60,13 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.open()
     page.add_product_to_basket()
     page.should_be_success_message()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    page = BasketPage(browser, link)
+    page.open()
+    time.sleep(1)
+    page.go_to_basket_page()
+    time.sleep(5)
+    page.should_be_empty_basket_message()
+    page.should_be_empty_basket()
