@@ -19,7 +19,7 @@ def pytest_addoption(parser):
                      help="Please choose language name to select")
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def browser(request):
     """
     Read language and browser
