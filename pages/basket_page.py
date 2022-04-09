@@ -11,9 +11,3 @@ class BasketPage(BasePage):
 
     def should_not_be_empty_basket(self):
         assert self.is_disappeared(*BasketPageLocators.PRODUCT_IN_BASKET), "Your basket not empty, but should be empty"
-
-
-
-
-
-
