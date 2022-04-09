@@ -1,3 +1,5 @@
+import random
+
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
@@ -22,3 +24,20 @@ class LoginPage(BasePage):
         # реализуйте проверку, что есть форма регистрации на странице
         assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "register form is absent"
         assert True
+
+    def register_new_user(self):
+        user = random.randint(1, 100000)
+        email = f"{user}aurum@minde.com"
+        password = f"{user}PythonAmore"
+
+        email_input = self.browser.find_element(*LoginPageLocators.EMAIL_FIELD)
+        email_input.send_keys(email)
+
+        password_input = self.browser.find_element(*LoginPageLocators.PASSWORD_FIELD)
+        password_input.send_keys(password)
+
+        confirm_password = self.browser.find_element(*LoginPageLocators.CONFIRM_FIELD)
+        confirm_password.send_keys(password)
+
+        register_user = self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON)
+        register_user.click()
